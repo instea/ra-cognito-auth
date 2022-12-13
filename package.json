@@ -5,5 +5,14 @@
   "main": "lib/index.js",
   "repository": "git@github.com:instea/ra-cognito-auth.git",
   "author": "instea.sk",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "swc ./src -d ./lib"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.3.22",
+    "chokidar": "^3.5.3",
+    "typescript": "^4.9.4"
+  }
 }
