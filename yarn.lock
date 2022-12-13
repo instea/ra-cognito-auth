@@ -522,10 +522,10 @@ ajv@^6.10.0, ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-amazon-cognito-identity-js-promises@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/amazon-cognito-identity-js-promises/-/amazon-cognito-identity-js-promises-0.0.3.tgz#cf79ef5d3fcf2056b275495c1f93565ef871ef20"
-  integrity sha512-T6hW3UTqV80FbB/+v5YZrgUPGuTrb2iJSWCflcRtWET3QyMc7KCGliB+LyloQOrjSrAcjVLkj1xjxJuVQSKqaQ==
+amazon-cognito-identity-js-promises@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/amazon-cognito-identity-js-promises/-/amazon-cognito-identity-js-promises-0.0.4.tgz#f17a84c6f3e7481dabed2775561f54044c8d5f2e"
+  integrity sha512-9hVEpBk/kq2QJEbMos+PHzTA2YjRdWt1qHKmqde36OPE/DNfrbNqIW3h8CPOFA+zQuxQwCie15Cdv1+8IKHxTA==
   dependencies:
     amazon-cognito-identity-js "^6.0.1"
 

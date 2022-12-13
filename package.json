@@ -1,6 +1,6 @@
 {
   "name": "ra-cognito-auth",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cognito auth provider for react-admin",
   "main": "lib/index.js",
   "repository": "git@github.com:instea/ra-cognito-auth.git",
@@ -16,14 +16,14 @@
     "@instea/eslint-config-node": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
-    "amazon-cognito-identity-js-promises": "^0.0.3",
+    "amazon-cognito-identity-js-promises": "^0.0.4",
     "eslint": "^8.29.0",
     "prettier": "^2.8.1",
     "react-admin": "^4.6.1",
     "typescript": "^4.9.4"
   },
   "peerDependencies": {
-    "amazon-cognito-identity-js-promises": "^0.0.3",
+    "amazon-cognito-identity-js-promises": "^0.0.4",
     "react-admin": "4"
   }
 }
