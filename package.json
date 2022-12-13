@@ -1,0 +1,9 @@
+{
+  "name": "ra-cognito-auth",
+  "version": "0.0.1",
+  "description": "Cognito auth provider for react-admin",
+  "main": "lib/index.js",
+  "repository": "git@github.com:instea/ra-cognito-auth.git",
+  "author": "instea.sk",
+  "license": "MIT"
+}
