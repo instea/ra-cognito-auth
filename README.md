@@ -34,7 +34,7 @@ export const App = () => (
 );
 ```
 
-Get get access token from cognito pool to authrize api calls:
+Get access token from the cognito pool to authrize api calls:
 
 ```js
 const session = await userPool.getCurrentUser()?.getSession();
