@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "module": "node16",
+    "rootDir": ".",
+    "types": ["node"]
+  },
+  "include": ["./src"]
+}
