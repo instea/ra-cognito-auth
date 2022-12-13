@@ -52,9 +52,8 @@ export function buildCognitoAuthProvider({
       }
     },
     // remove local credentials and notify the auth server that the user logged out
-    logout() {
-      userPool.getCurrentUser()?.signOut();
-      return Promise.resolve();
+    async logout() {
+      await userPool.getCurrentUser()?.signOut();
     },
     // get the user's profile
     async getIdentity() {
