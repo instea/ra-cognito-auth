@@ -46,7 +46,7 @@ export function buildCognitoAuthProvider({
     // when the user navigates, make sure that their credentials are still valid
     async checkAuth() {
       const user = userPool.getCurrentUser();
-      const session = await user?.getSession();
+      const session = await user?.getSession(); // this will also refresh token if needed
       if (!session?.isValid()) {
         throw new UnauthorizedError();
       }

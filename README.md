@@ -37,6 +37,7 @@ export const App = () => (
 Get access token from the cognito pool to authrize api calls:
 
 ```js
+// calling `getSession()` will also refresh token if needed
 const session = await userPool.getCurrentUser()?.getSession();
 const accessToken = session?.getAccessToken().getJwtToken();
 ```
