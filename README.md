@@ -5,12 +5,14 @@ AWS Cognito auth provider for react-admin.
 ## Installation
 
 ```sh
-npm install ra-cognito-auth amazon-cognito-identity-js-promises
+npm install ra-cognito-auth amazon-cognito-identity-js-promises aws-jwt-verify
 ```
 
 ## Usage
 
-Build auth provider and pass it to the react admin:
+Build auth provider and pass it to the react admin. If no cognito jwt verifier is passed to the build function, only the validity of the session is checked during the checkAuth method. If provided, the jwt token is verified against the verifier.
+
+Example:
 
 ```js
 import { CognitoUserPool } from 'amazon-cognito-identity-js-promises';
@@ -25,7 +27,13 @@ const userPool: CognitoUserPool = new CognitoUserPool({
   ClientId: 'myClientId',
 });
 
-const authProvider = buildCognitoAuthProvider({ userPool });
+const cognitoJwtVerifier = CognitoJwtVerifier.create({
+  tokenUse: 'access',
+  userPoolId: 'myUserPool',
+  clientId: 'myClientId',
+});
+
+const authProvider = buildCognitoAuthProvider({ userPool, cognitoJwtVerifier });
 
 export const App = () => (
   <Admin dataProvider={dataProvider} authProvider={authProvider}>
