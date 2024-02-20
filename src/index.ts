@@ -66,8 +66,13 @@ export function buildCognitoAuthProvider({
       if (!cognitoJwtVerifier) {
         return;
       }
-      const token = session?.getAccessToken().getJwtToken();
-      await cognitoJwtVerifier.verify(token);
+
+      try {
+        const token = session?.getAccessToken().getJwtToken();
+        await cognitoJwtVerifier.verify(token);
+      } catch (e) {
+        throw new UnauthorizedError();
+      }
     },
     // remove local credentials and notify the auth server that the user logged out
     async logout() {
