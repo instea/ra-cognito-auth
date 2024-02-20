@@ -4,6 +4,10 @@ import {
   CognitoUserPool,
 } from 'amazon-cognito-identity-js-promises';
 import { AuthProvider } from 'react-admin';
+import {
+  CognitoJwtVerifierProperties,
+  CognitoJwtVerifierSingleUserPool,
+} from 'aws-jwt-verify/cognito-verifier';
 
 class UnauthorizedError extends Error {
   constructor() {
@@ -13,10 +17,17 @@ class UnauthorizedError extends Error {
 
 export type CognitoAuthProviderOptions = {
   userPool: CognitoUserPool;
+  cognitoJwtVerifier?: CognitoJwtVerifierSingleUserPool<
+    {
+      tokenUse: 'id' | 'access';
+      clientId: string;
+    } & CognitoJwtVerifierProperties
+  >;
 };
 
 export function buildCognitoAuthProvider({
   userPool,
+  cognitoJwtVerifier,
 }: CognitoAuthProviderOptions): AuthProvider {
   return {
     // send username and password to the auth server and get back credentials
@@ -48,6 +59,18 @@ export function buildCognitoAuthProvider({
       const user = userPool.getCurrentUser();
       const session = await user?.getSession(); // this will also refresh token if needed
       if (!session?.isValid()) {
+        throw new UnauthorizedError();
+      }
+
+      // If no jwt verifier present, skip the token verification
+      if (!cognitoJwtVerifier) {
+        return;
+      }
+
+      try {
+        const token = session?.getAccessToken().getJwtToken();
+        await cognitoJwtVerifier.verify(token);
+      } catch (e) {
         throw new UnauthorizedError();
       }
     },

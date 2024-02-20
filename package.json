@@ -17,6 +17,7 @@
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "amazon-cognito-identity-js-promises": "^0.0.4",
+    "aws-jwt-verify": "^4.0.0",
     "eslint": "^8.29.0",
     "prettier": "^2.8.1",
     "react-admin": "^4.6.1",
@@ -24,6 +25,7 @@
   },
   "peerDependencies": {
     "amazon-cognito-identity-js-promises": "^0.0.4",
+    "aws-jwt-verify": "^4.0.0",
     "react-admin": "4"
   }
 }
